@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chính sách bảo mật — Quản lí chi tiêu</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #17201b;
+    --muted: #5a6b61;
+    --line: #dde5e0;
+    --accent: #005046;
+    --card: #f4f8f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101613;
+      --fg: #e8efea;
+      --muted: #9fb0a6;
+      --line: #263029;
+      --accent: #7fd6c3;
+      --card: #18211c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 96px; }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 8px; letter-spacing: -0.01em; }
+  h2 {
+    font-size: 1.15rem; margin: 40px 0 12px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  h2:first-of-type { border-top: 0; padding-top: 0; }
+  h3 { font-size: 1rem; margin: 24px 0 8px; }
+  p, li { color: var(--fg); }
+  .meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 32px; }
+  .lead {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px 20px; margin: 0 0 32px;
+  }
+  .lead p { margin: 0; }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  code {
+    background: var(--card); border: 1px solid var(--line); border-radius: 5px;
+    padding: 1px 5px; font-size: 0.87em;
+  }
+  a { color: var(--accent); }
+  .lang-switch { margin: 0 0 32px; font-size: 0.92rem; }
+  .lang-switch a { margin-right: 14px; }
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 0.88rem;
+  }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.94rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Chính sách bảo mật</h1>
+<p class="meta">Ứng dụng <strong>Quản lí chi tiêu</strong> (<code>com.bquminh.chitieu</code>) · Có hiệu lực từ 22/09/2026</p>
+
+<p class="lang-switch"><a href="#vi">Tiếng Việt</a> <a href="#en">English</a></p>
+
+<section id="vi">
+
+<div class="lead">
+<p><strong>Tóm tắt: ứng dụng này không thu thập dữ liệu của bạn.</strong> Không có tài khoản, không có máy chủ, không có quảng cáo, không có công cụ thống kê. Mọi thứ bạn nhập vào đều nằm trong bộ nhớ máy bạn và không được gửi đi đâu cả.</p>
+</div>
+
+<h2>1. Ứng dụng không kết nối mạng</h2>
+<p>Ứng dụng không khai báo quyền truy cập Internet (<code>android.permission.INTERNET</code>). Đây không phải là lời hứa suông mà là một giới hạn kỹ thuật do hệ điều hành Android áp đặt: không có quyền đó, ứng dụng <em>không thể</em> gửi dữ liệu ra ngoài, kể cả khi muốn. Bạn có thể tự kiểm tra bằng cách xem danh sách quyền của ứng dụng trong phần Cài đặt của máy.</p>
+
+<h2>2. Dữ liệu ứng dụng lưu giữ</h2>
+<p>Toàn bộ dữ liệu nằm trong một cơ sở dữ liệu SQLite thuộc vùng lưu trữ riêng của ứng dụng trên máy bạn:</p>
+<ul>
+  <li>Giao dịch thu, chi, chuyển khoản: số tiền, ngày, danh mục, ghi chú</li>
+  <li>Ví và số dư</li>
+  <li>Ngân sách, mục tiêu tiết kiệm, khoản nợ và khoản cho vay</li>
+  <li>Danh mục bạn tự tạo hoặc chỉnh sửa</li>
+  <li>Quy tắc giao dịch định kỳ và lịch nhắc</li>
+  <li>Cài đặt của ứng dụng</li>
+</ul>
+<p>Không có mục nào trong số này rời khỏi máy bạn.</p>
+
+<h2>3. Mã PIN và sinh trắc học</h2>
+<p>Nếu bạn bật khoá ứng dụng:</p>
+<ul>
+  <li><strong>Mã PIN</strong> không bao giờ được lưu ở dạng thô. Ứng dụng chỉ lưu một chuỗi băm PBKDF2-HMAC-SHA256 kèm một chuỗi muối ngẫu nhiên. Từ chuỗi băm đó không khôi phục lại được mã PIN.</li>
+  <li><strong>Vân tay và khuôn mặt</strong> do hệ điều hành Android xử lý hoàn toàn. Ứng dụng chỉ nhận về kết quả đúng hoặc sai, không bao giờ tiếp cận dữ liệu sinh trắc của bạn.</li>
+</ul>
+
+<h2>4. Quyền đọc thông báo (tuỳ chọn, mặc định tắt)</h2>
+<p>Ứng dụng có một tính năng tuỳ chọn: đọc thông báo biến động số dư từ ứng dụng ngân hàng để dựng sẵn giao dịch cho bạn xác nhận, giúp bạn khỏi gõ tay.</p>
+<ul>
+  <li>Tính năng này <strong>mặc định tắt</strong>. Nó chỉ hoạt động sau khi chính bạn vào phần Cài đặt của hệ điều hành và cấp quyền truy cập thông báo.</li>
+  <li>Nội dung thông báo được đọc và phân tích <strong>ngay trên máy</strong>. Kết quả là một giao dịch nháp nằm trong mục "Chờ xác nhận" của ứng dụng.</li>
+  <li>Nội dung thông báo không được gửi đi đâu, không được tải lên máy chủ nào, không được chia sẻ với bên thứ ba. Xem lại mục 1: ứng dụng không có quyền mạng.</li>
+  <li>Ứng dụng <strong>không đọc tin nhắn SMS</strong>. Ứng dụng không khai báo quyền <code>READ_SMS</code> hay <code>RECEIVE_SMS</code>.</li>
+  <li>Bạn có thể thu hồi quyền này bất cứ lúc nào trong phần Cài đặt của máy.</li>
+</ul>
+
+<h2>5. Sao lưu và xuất dữ liệu</h2>
+<p>Ứng dụng cho phép bạn chủ động tạo tệp sao lưu JSON hoặc xuất giao dịch ra tệp CSV. Hai điểm bạn cần biết:</p>
+<ul>
+  <li>Tệp được tạo ra chỉ khi bạn tự bấm, và ban đầu nằm trong vùng lưu trữ của ứng dụng trên máy bạn.</li>
+  <li>Nếu bạn chọn chia sẻ tệp đó qua khay chia sẻ của Android (gửi email, lưu lên dịch vụ đám mây, gửi qua ứng dụng nhắn tin…), tệp sẽ đi tới nơi bạn chọn và từ thời điểm đó nó chịu sự điều chỉnh của chính sách bảo mật thuộc dịch vụ bạn đã chọn, không phải chính sách này. Tệp sao lưu chứa toàn bộ dữ liệu tài chính của bạn ở dạng đọc được, nên hãy cân nhắc nơi gửi tới.</li>
+</ul>
+
+<h2>6. Không có bên thứ ba</h2>
+<p>Ứng dụng không tích hợp bất kỳ thành phần nào sau đây:</p>
+<ul>
+  <li>Mạng quảng cáo</li>
+  <li>Công cụ phân tích hành vi hay đo lường (analytics)</li>
+  <li>Công cụ báo cáo sự cố (crash reporting)</li>
+  <li>Mạng xã hội, đăng nhập bên thứ ba</li>
+  <li>Dịch vụ đám mây hay đồng bộ hoá</li>
+</ul>
+<p>Do đó không có bên thứ ba nào nhận được dữ liệu từ ứng dụng.</p>
+
+<h2>7. Quyền ứng dụng khai báo</h2>
+<table>
+  <tr><th>Quyền</th><th>Dùng để làm gì</th></tr>
+  <tr><td><code>USE_BIOMETRIC</code><br><code>USE_FINGERPRINT</code></td><td>Mở khoá ứng dụng bằng vân tay hoặc khuôn mặt. Chỉ hoạt động nếu bạn bật.</td></tr>
+  <tr><td><code>POST_NOTIFICATIONS</code></td><td>Hiện thông báo nhắc giao dịch định kỳ. Chỉ hoạt động nếu bạn bật phần nhắc nhở.</td></tr>
+  <tr><td><code>VIBRATE</code></td><td>Rung khi có thông báo nhắc.</td></tr>
+  <tr><td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td><td>Đọc thông báo ngân hàng, xem mục 4. Mặc định tắt, bạn tự cấp trong Cài đặt hệ thống.</td></tr>
+</table>
+
+<h2>8. Xoá dữ liệu</h2>
+<p>Vì dữ liệu chỉ nằm trên máy bạn, bạn kiểm soát hoàn toàn việc xoá:</p>
+<ul>
+  <li>Xoá từng giao dịch, ví, danh mục… trực tiếp trong ứng dụng.</li>
+  <li>Xoá toàn bộ bằng cách vào Cài đặt máy → Ứng dụng → Quản lí chi tiêu → Bộ nhớ → Xoá dữ liệu.</li>
+  <li>Gỡ cài đặt ứng dụng sẽ xoá toàn bộ dữ liệu của nó.</li>
+</ul>
+<p>Chúng tôi không giữ bản sao nào nên không có gì để yêu cầu xoá từ phía chúng tôi.</p>
+
+<h2>9. Trẻ em</h2>
+<p>Ứng dụng dành cho người dùng từ 18 tuổi trở lên và không nhắm tới trẻ em. Ứng dụng không cố ý thu thập dữ liệu từ bất kỳ ai, kể cả trẻ em.</p>
+
+<h2>10. Thay đổi chính sách</h2>
+<p>Nếu chính sách này thay đổi, bản cập nhật sẽ được đăng tại chính trang này kèm ngày hiệu lực mới. Nếu một bản cập nhật ứng dụng trong tương lai có thêm tính năng cần gửi dữ liệu ra ngoài, điều đó sẽ được nêu rõ tại đây trước khi bản cập nhật được phát hành.</p>
+
+<h2>11. Liên hệ</h2>
+<p>Câu hỏi về chính sách này xin gửi tới: <a href="mailto:bquminh@gmail.com">bquminh@gmail.com</a></p>
+
+</section>
+
+<section id="en">
+
+<h1 style="margin-top:64px">Privacy Policy</h1>
+<p class="meta"><strong>Quản lí chi tiêu</strong> (<code>com.bquminh.chitieu</code>) · Effective 22 September 2026</p>
+
+<div class="lead">
+<p><strong>Summary: this app does not collect your data.</strong> No account, no server, no ads, no analytics. Everything you enter stays in your device's storage and is never transmitted anywhere.</p>
+</div>
+
+<h2>1. The app has no network access</h2>
+<p>The app does not declare the <code>android.permission.INTERNET</code> permission. This is not a promise but a technical constraint enforced by Android: without that permission the app <em>cannot</em> send data anywhere, even if it wanted to. You can verify this yourself in your device's app permission settings.</p>
+
+<h2>2. What the app stores</h2>
+<p>All data lives in a SQLite database inside the app's private storage on your device: transactions (amount, date, category, note), wallets and balances, budgets, savings goals, debts and loans, categories you create or edit, recurring rules and reminders, and app settings. None of it leaves your device.</p>
+
+<h2>3. PIN and biometrics</h2>
+<p>If you enable the app lock, your PIN is never stored in plain text — only a PBKDF2-HMAC-SHA256 hash with a random salt, from which the PIN cannot be recovered. Fingerprint and face authentication are handled entirely by Android; the app only receives a success or failure result and never accesses your biometric data.</p>
+
+<h2>4. Notification access (optional, off by default)</h2>
+<p>The app offers an optional feature that reads balance-change notifications from your banking apps to pre-fill a draft transaction for you to confirm, so you don't have to type it. This feature is <strong>off by default</strong> and only works after you grant notification access in your device's system settings. Notification content is parsed <strong>on-device only</strong>, is never uploaded or shared with anyone, and the app has no network permission (see section 1). The app <strong>does not read SMS messages</strong> and declares no <code>READ_SMS</code> or <code>RECEIVE_SMS</code> permission. You can revoke notification access at any time in system settings.</p>
+
+<h2>5. Backups and exports</h2>
+<p>You can create a JSON backup file or export transactions to CSV. These files are created only when you ask for them and initially stay in the app's storage on your device. If you then share such a file through Android's share sheet (email, cloud storage, messaging apps), the file goes wherever you send it and is from that point governed by the privacy policy of the service you chose, not by this policy. A backup contains all of your financial data in readable form, so choose the destination carefully.</p>
+
+<h2>6. No third parties</h2>
+<p>The app contains no advertising networks, no analytics or measurement tools, no crash reporting, no social or third-party sign-in, and no cloud or sync services. No third party receives any data from the app.</p>
+
+<h2>7. Permissions declared</h2>
+<table>
+  <tr><th>Permission</th><th>Purpose</th></tr>
+  <tr><td><code>USE_BIOMETRIC</code>, <code>USE_FINGERPRINT</code></td><td>Unlock the app with fingerprint or face. Only active if you enable it.</td></tr>
+  <tr><td><code>POST_NOTIFICATIONS</code></td><td>Show reminders for recurring transactions. Only active if you enable reminders.</td></tr>
+  <tr><td><code>VIBRATE</code></td><td>Vibration for reminder notifications.</td></tr>
+  <tr><td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td><td>Reading bank notifications, see section 4. Off by default; you grant it yourself in system settings.</td></tr>
+</table>
+
+<h2>8. Deleting your data</h2>
+<p>Because data exists only on your device, you control deletion entirely: delete individual records in the app, clear everything via Settings → Apps → Quản lí chi tiêu → Storage → Clear data, or uninstall the app. We hold no copy, so there is nothing to request deletion of from us.</p>
+
+<h2>9. Children</h2>
+<p>The app is intended for users aged 18 and over and is not directed at children. The app does not knowingly collect data from anyone, including children.</p>
+
+<h2>10. Changes to this policy</h2>
+<p>Any update will be posted on this page with a new effective date. If a future version of the app adds a feature that transmits data off the device, that will be stated here before the update is released.</p>
+
+<h2>11. Contact</h2>
+<p>Questions about this policy: <a href="mailto:bquminh@gmail.com">bquminh@gmail.com</a></p>
+
+</section>
+
+<footer>
+  Quản lí chi tiêu · com.bquminh.chitieu · Cập nhật lần cuối 22/09/2026
+</footer>
+
+</main>
+</body>
+</html>
