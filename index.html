@@ -68,18 +68,27 @@
 <main>
 
 <h1>Chính sách bảo mật</h1>
-<p class="meta">Ứng dụng <strong>Quản lí chi tiêu</strong> (<code>com.bquminh.chitieu</code>) · Có hiệu lực từ 22/09/2026</p>
+<p class="meta">Ứng dụng <strong>Quản lí chi tiêu</strong> (<code>com.bquminh.chitieu</code>) · Có hiệu lực từ 04/11/2026</p>
 
 <p class="lang-switch"><a href="#vi">Tiếng Việt</a> <a href="#en">English</a></p>
 
 <section id="vi">
 
 <div class="lead">
-<p><strong>Tóm tắt: ứng dụng này không thu thập dữ liệu của bạn.</strong> Không có tài khoản, không có máy chủ, không có quảng cáo, không có công cụ thống kê. Mọi thứ bạn nhập vào đều nằm trong bộ nhớ máy bạn và không được gửi đi đâu cả.</p>
+<p><strong>Tóm tắt: chúng tôi không thu thập dữ liệu của bạn.</strong> Không có tài khoản, không có máy chủ của chúng tôi, không có quảng cáo, không có công cụ thống kê. Mọi thứ bạn nhập vào nằm trong bộ nhớ máy bạn. Ngoại lệ duy nhất là <strong>trợ lý AI</strong> (mục 1): chỉ khi bạn đồng ý, những câu hỏi trợ lý không tự trả lời được mới được gửi tới Google Gemini kèm một phần dữ liệu chi tiêu.</p>
 </div>
 
-<h2>1. Ứng dụng không kết nối mạng</h2>
-<p>Ứng dụng không khai báo quyền truy cập Internet (<code>android.permission.INTERNET</code>). Đây không phải là lời hứa suông mà là một giới hạn kỹ thuật do hệ điều hành Android áp đặt: không có quyền đó, ứng dụng <em>không thể</em> gửi dữ liệu ra ngoài, kể cả khi muốn. Bạn có thể tự kiểm tra bằng cách xem danh sách quyền của ứng dụng trong phần Cài đặt của máy.</p>
+<h2>1. Kết nối mạng và trợ lý AI</h2>
+<p>Ứng dụng khai báo quyền truy cập Internet (<code>android.permission.INTERNET</code>) <strong>chỉ để dùng cho trợ lý AI</strong>. Mọi tính năng khác — ghi giao dịch, ngân sách, báo cáo, đọc thông báo ngân hàng, sao lưu — chạy hoàn toàn trên máy và không kết nối mạng.</p>
+<p>Trợ lý xử lý trên máy trước: câu ghi sổ (vd "cà phê 45k") và các câu hỏi về số dư, chi tiêu, ngân sách, cách dùng ứng dụng được trả lời ngay trên máy, không gửi đi đâu. Chỉ khi trợ lý không tự trả lời được, câu hỏi mới được gửi tới <strong>Google Gemini API</strong>, và chỉ sau khi bạn bấm đồng ý ở lần đầu. Khi đó, dữ liệu gửi đi gồm:</p>
+<ul>
+  <li>câu bạn vừa nhắn;</li>
+  <li>tên các danh mục và ví;</li>
+  <li>tổng thu, tổng chi của tháng này và tháng trước, các nhóm chi lớn nhất;</li>
+  <li>khoảng 50 giao dịch gần nhất: ngày, loại, số tiền, danh mục, ví và ghi chú.</li>
+</ul>
+<p><strong>Không bao giờ gửi:</strong> mã PIN, nội dung gốc của thông báo ngân hàng, số tài khoản, tệp sao lưu. Ứng dụng không gửi kèm định danh thiết bị hay thông tin cá nhân nào khác.</p>
+<p>Google xử lý dữ liệu này theo <a href="https://ai.google.dev/gemini-api/terms">Điều khoản Gemini API</a> và <a href="https://policies.google.com/privacy">Chính sách quyền riêng tư của Google</a>. Chúng tôi không có máy chủ riêng và không lưu bất kỳ câu hỏi hay câu trả lời nào. Mỗi ngày bạn hỏi AI được tối đa 10 lần. Bạn có thể tắt việc gửi dữ liệu bất cứ lúc nào trong màn Trợ lý (menu ⋮ → "Dùng AI khi cần").</p>
 
 <h2>2. Dữ liệu ứng dụng lưu giữ</h2>
 <p>Toàn bộ dữ liệu nằm trong một cơ sở dữ liệu SQLite thuộc vùng lưu trữ riêng của ứng dụng trên máy bạn:</p>
@@ -91,7 +100,7 @@
   <li>Quy tắc giao dịch định kỳ và lịch nhắc</li>
   <li>Cài đặt của ứng dụng</li>
 </ul>
-<p>Không có mục nào trong số này rời khỏi máy bạn.</p>
+<p>Không có mục nào trong số này rời khỏi máy bạn, trừ phần gửi kèm câu hỏi trợ lý AI khi bạn đã đồng ý (mục 1).</p>
 
 <h2>3. Mã PIN và sinh trắc học</h2>
 <p>Nếu bạn bật khoá ứng dụng:</p>
@@ -105,7 +114,7 @@
 <ul>
   <li>Tính năng này <strong>mặc định tắt</strong>. Nó chỉ hoạt động sau khi chính bạn vào phần Cài đặt của hệ điều hành và cấp quyền truy cập thông báo.</li>
   <li>Nội dung thông báo được đọc và phân tích <strong>ngay trên máy</strong>. Kết quả là một giao dịch nháp nằm trong mục "Chờ xác nhận" của ứng dụng.</li>
-  <li>Nội dung thông báo không được gửi đi đâu, không được tải lên máy chủ nào, không được chia sẻ với bên thứ ba. Xem lại mục 1: ứng dụng không có quyền mạng.</li>
+  <li>Nội dung gốc của thông báo không được gửi đi đâu, không được tải lên máy chủ nào, không được chia sẻ với bên thứ ba — kể cả với trợ lý AI.</li>
   <li>Ứng dụng <strong>không đọc tin nhắn SMS</strong>. Ứng dụng không khai báo quyền <code>READ_SMS</code> hay <code>RECEIVE_SMS</code>.</li>
   <li>Bạn có thể thu hồi quyền này bất cứ lúc nào trong phần Cài đặt của máy.</li>
 </ul>
@@ -117,8 +126,8 @@
   <li>Nếu bạn chọn chia sẻ tệp đó qua khay chia sẻ của Android (gửi email, lưu lên dịch vụ đám mây, gửi qua ứng dụng nhắn tin…), tệp sẽ đi tới nơi bạn chọn và từ thời điểm đó nó chịu sự điều chỉnh của chính sách bảo mật thuộc dịch vụ bạn đã chọn, không phải chính sách này. Tệp sao lưu chứa toàn bộ dữ liệu tài chính của bạn ở dạng đọc được, nên hãy cân nhắc nơi gửi tới.</li>
 </ul>
 
-<h2>6. Không có bên thứ ba</h2>
-<p>Ứng dụng không tích hợp bất kỳ thành phần nào sau đây:</p>
+<h2>6. Bên thứ ba</h2>
+<p>Bên thứ ba duy nhất có thể nhận dữ liệu là Google (Gemini API), và chỉ trong trường hợp nêu ở mục 1. Ứng dụng không tích hợp bất kỳ thành phần nào sau đây:</p>
 <ul>
   <li>Mạng quảng cáo</li>
   <li>Công cụ phân tích hành vi hay đo lường (analytics)</li>
@@ -126,7 +135,7 @@
   <li>Mạng xã hội, đăng nhập bên thứ ba</li>
   <li>Dịch vụ đám mây hay đồng bộ hoá</li>
 </ul>
-<p>Do đó không có bên thứ ba nào nhận được dữ liệu từ ứng dụng.</p>
+
 
 <h2>7. Quyền ứng dụng khai báo</h2>
 <table>
@@ -135,6 +144,8 @@
   <tr><td><code>POST_NOTIFICATIONS</code></td><td>Hiện thông báo nhắc giao dịch định kỳ. Chỉ hoạt động nếu bạn bật phần nhắc nhở.</td></tr>
   <tr><td><code>VIBRATE</code></td><td>Rung khi có thông báo nhắc.</td></tr>
   <tr><td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td><td>Đọc thông báo ngân hàng, xem mục 4. Mặc định tắt, bạn tự cấp trong Cài đặt hệ thống.</td></tr>
+  <tr><td><code>INTERNET</code></td><td>Chỉ để gửi câu hỏi tới trợ lý AI khi bạn đã đồng ý, xem mục 1.</td></tr>
+  <tr><td><code>SYSTEM_ALERT_WINDOW</code><br><code>FOREGROUND_SERVICE</code><br><code>FOREGROUND_SERVICE_SPECIAL_USE</code></td><td>Bong bóng ghi nhanh nổi trên ứng dụng khác (Android). Mặc định tắt; khi bật, Android hiện một thông báo thường trực.</td></tr>
 </table>
 
 <h2>8. Xoá dữ liệu</h2>
@@ -144,7 +155,7 @@
   <li>Xoá toàn bộ bằng cách vào Cài đặt máy → Ứng dụng → Quản lí chi tiêu → Bộ nhớ → Xoá dữ liệu.</li>
   <li>Gỡ cài đặt ứng dụng sẽ xoá toàn bộ dữ liệu của nó.</li>
 </ul>
-<p>Chúng tôi không giữ bản sao nào nên không có gì để yêu cầu xoá từ phía chúng tôi.</p>
+<p>Chúng tôi không giữ bản sao nào nên không có gì để yêu cầu xoá từ phía chúng tôi. Dữ liệu đã gửi tới Gemini được Google xử lý theo điều khoản của họ.</p>
 
 <h2>9. Trẻ em</h2>
 <p>Ứng dụng dành cho người dùng từ 18 tuổi trở lên và không nhắm tới trẻ em. Ứng dụng không cố ý thu thập dữ liệu từ bất kỳ ai, kể cả trẻ em.</p>
@@ -160,29 +171,32 @@
 <section id="en">
 
 <h1 style="margin-top:64px">Privacy Policy</h1>
-<p class="meta"><strong>Quản lí chi tiêu</strong> (<code>com.bquminh.chitieu</code>) · Effective 22 September 2026</p>
+<p class="meta"><strong>Quản lí chi tiêu</strong> (<code>com.bquminh.chitieu</code>) · Effective 4 November 2026</p>
 
 <div class="lead">
-<p><strong>Summary: this app does not collect your data.</strong> No account, no server, no ads, no analytics. Everything you enter stays in your device's storage and is never transmitted anywhere.</p>
+<p><strong>Summary: we do not collect your data.</strong> No account, no server of ours, no ads, no analytics. Everything you enter stays on your device. The only exception is the <strong>AI assistant</strong> (section 1): only with your consent, questions the assistant can't answer on its own are sent to Google Gemini together with part of your spending data.</p>
 </div>
 
-<h2>1. The app has no network access</h2>
-<p>The app does not declare the <code>android.permission.INTERNET</code> permission. This is not a promise but a technical constraint enforced by Android: without that permission the app <em>cannot</em> send data anywhere, even if it wanted to. You can verify this yourself in your device's app permission settings.</p>
+<h2>1. Network access and the AI assistant</h2>
+<p>The app declares the <code>android.permission.INTERNET</code> permission <strong>only for the AI assistant</strong>. Every other feature — logging, budgets, reports, bank notification reading, backups — runs entirely on your device without a network connection.</p>
+<p>The assistant works on-device first: logging messages (e.g. "coffee 45k") and questions about balances, spending, budgets or how to use the app are answered on your device and never sent anywhere. Only when the assistant can't answer by itself is the question sent to the <strong>Google Gemini API</strong>, and only after you agree the first time. In that case the data sent is: your message; your category and wallet names; income and spending totals for this and last month and the top spending categories; and about 50 recent transactions (date, type, amount, category, wallet and note).</p>
+<p><strong>Never sent:</strong> your PIN, raw bank notification text, account numbers, backup files. No device identifier or other personal information is attached.</p>
+<p>Google processes this data under the <a href="https://ai.google.dev/gemini-api/terms">Gemini API Terms</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. We run no server and store none of your questions or answers. You can ask the AI at most 10 times per day, and you can stop sending data at any time from the Assistant screen (⋮ menu → "Use AI when needed").</p>
 
 <h2>2. What the app stores</h2>
-<p>All data lives in a SQLite database inside the app's private storage on your device: transactions (amount, date, category, note), wallets and balances, budgets, savings goals, debts and loans, categories you create or edit, recurring rules and reminders, and app settings. None of it leaves your device.</p>
+<p>All data lives in a SQLite database inside the app's private storage on your device: transactions (amount, date, category, note), wallets and balances, budgets, savings goals, debts and loans, categories you create or edit, recurring rules and reminders, and app settings. None of it leaves your device, except what is sent with an AI assistant question after you consent (section 1).</p>
 
 <h2>3. PIN and biometrics</h2>
 <p>If you enable the app lock, your PIN is never stored in plain text — only a PBKDF2-HMAC-SHA256 hash with a random salt, from which the PIN cannot be recovered. Fingerprint and face authentication are handled entirely by Android; the app only receives a success or failure result and never accesses your biometric data.</p>
 
 <h2>4. Notification access (optional, off by default)</h2>
-<p>The app offers an optional feature that reads balance-change notifications from your banking apps to pre-fill a draft transaction for you to confirm, so you don't have to type it. This feature is <strong>off by default</strong> and only works after you grant notification access in your device's system settings. Notification content is parsed <strong>on-device only</strong>, is never uploaded or shared with anyone, and the app has no network permission (see section 1). The app <strong>does not read SMS messages</strong> and declares no <code>READ_SMS</code> or <code>RECEIVE_SMS</code> permission. You can revoke notification access at any time in system settings.</p>
+<p>The app offers an optional feature that reads balance-change notifications from your banking apps to pre-fill a draft transaction for you to confirm, so you don't have to type it. This feature is <strong>off by default</strong> and only works after you grant notification access in your device's system settings. Notification content is parsed <strong>on-device only</strong> and the raw text is never uploaded or shared with anyone, including the AI assistant. The app <strong>does not read SMS messages</strong> and declares no <code>READ_SMS</code> or <code>RECEIVE_SMS</code> permission. You can revoke notification access at any time in system settings.</p>
 
 <h2>5. Backups and exports</h2>
 <p>You can create a JSON backup file or export transactions to CSV. These files are created only when you ask for them and initially stay in the app's storage on your device. If you then share such a file through Android's share sheet (email, cloud storage, messaging apps), the file goes wherever you send it and is from that point governed by the privacy policy of the service you chose, not by this policy. A backup contains all of your financial data in readable form, so choose the destination carefully.</p>
 
-<h2>6. No third parties</h2>
-<p>The app contains no advertising networks, no analytics or measurement tools, no crash reporting, no social or third-party sign-in, and no cloud or sync services. No third party receives any data from the app.</p>
+<h2>6. Third parties</h2>
+<p>The only third party that may receive data is Google (Gemini API), and only as described in section 1. The app contains no advertising networks, no analytics or measurement tools, no crash reporting, no social or third-party sign-in, and no cloud or sync services.</p>
 
 <h2>7. Permissions declared</h2>
 <table>
@@ -191,10 +205,12 @@
   <tr><td><code>POST_NOTIFICATIONS</code></td><td>Show reminders for recurring transactions. Only active if you enable reminders.</td></tr>
   <tr><td><code>VIBRATE</code></td><td>Vibration for reminder notifications.</td></tr>
   <tr><td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td><td>Reading bank notifications, see section 4. Off by default; you grant it yourself in system settings.</td></tr>
+  <tr><td><code>INTERNET</code></td><td>Only to send questions to the AI assistant after you consent, see section 1.</td></tr>
+  <tr><td><code>SYSTEM_ALERT_WINDOW</code>, <code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_SPECIAL_USE</code></td><td>The quick-add bubble shown over other apps (Android). Off by default; while on, Android shows an ongoing notification.</td></tr>
 </table>
 
 <h2>8. Deleting your data</h2>
-<p>Because data exists only on your device, you control deletion entirely: delete individual records in the app, clear everything via Settings → Apps → Quản lí chi tiêu → Storage → Clear data, or uninstall the app. We hold no copy, so there is nothing to request deletion of from us.</p>
+<p>Because data exists only on your device, you control deletion entirely: delete individual records in the app, clear everything via Settings → Apps → Quản lí chi tiêu → Storage → Clear data, or uninstall the app. We hold no copy, so there is nothing to request deletion of from us. Data sent to Gemini is processed by Google under its terms.</p>
 
 <h2>9. Children</h2>
 <p>The app is intended for users aged 18 and over and is not directed at children. The app does not knowingly collect data from anyone, including children.</p>
@@ -208,7 +224,7 @@
 </section>
 
 <footer>
-  Quản lí chi tiêu · com.bquminh.chitieu · Cập nhật lần cuối 22/09/2026
+  Quản lí chi tiêu · com.bquminh.chitieu · Cập nhật lần cuối 04/11/2026
 </footer>
 
 </main>
