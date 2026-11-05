@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xoá tài khoản và dữ liệu — Quản lí chi tiêu</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #17201b;
+    --muted: #5a6b61;
+    --line: #dde5e0;
+    --accent: #005046;
+    --card: #f4f8f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101613;
+      --fg: #e8efea;
+      --muted: #9fb0a6;
+      --line: #263029;
+      --accent: #7fd6c3;
+      --card: #18211c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 96px; }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 8px; letter-spacing: -0.01em; }
+  h2 {
+    font-size: 1.15rem; margin: 40px 0 12px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  h2:first-of-type { border-top: 0; padding-top: 0; }
+  h3 { font-size: 1rem; margin: 24px 0 8px; }
+  p, li { color: var(--fg); }
+  .meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 32px; }
+  .lead {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px 20px; margin: 0 0 32px;
+  }
+  .lead p { margin: 0; }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  code {
+    background: var(--card); border: 1px solid var(--line); border-radius: 5px;
+    padding: 1px 5px; font-size: 0.87em;
+  }
+  a { color: var(--accent); }
+  .lang-switch { margin: 0 0 32px; font-size: 0.92rem; }
+  .lang-switch a { margin-right: 14px; }
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 0.88rem;
+  }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.94rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Xoá tài khoản và dữ liệu</h1>
+<p class="meta">Ứng dụng <strong>Quản lí chi tiêu</strong> (<code>com.bquminh.chitieu</code>) · nhà phát triển Bùi Quang Minh</p>
+
+<p class="lang-switch"><a href="#vi">Tiếng Việt</a> <a href="#en">English</a></p>
+
+<section id="vi">
+
+<h2>Cách 1: Xoá ngay trong ứng dụng</h2>
+<ol>
+  <li>Mở ứng dụng <strong>Quản lí chi tiêu</strong>, chọn tab <strong>Cá nhân</strong>.</li>
+  <li>Ở thẻ tài khoản trên cùng, bấm <strong>Xoá tài khoản</strong> rồi xác nhận.</li>
+</ol>
+<p>Tài khoản đăng nhập (tên, email, ảnh đại diện, mã người dùng Firebase) bị xoá khỏi Firebase Authentication ngay lập tức.</p>
+
+<h2>Cách 2: Gửi yêu cầu qua email</h2>
+<p>Nếu bạn không còn cài ứng dụng, gửi email tới <a href="mailto:bquminh@gmail.com?subject=Xo%C3%A1%20t%C3%A0i%20kho%E1%BA%A3n%20Qu%E1%BA%A3n%20l%C3%AD%20chi%20ti%C3%AAu">bquminh@gmail.com</a> với tiêu đề <em>"Xoá tài khoản Quản lí chi tiêu"</em>, ghi rõ địa chỉ email Google bạn đã dùng để đăng nhập. Chúng tôi xử lý trong vòng 30 ngày và trả lời khi đã xoá xong.</p>
+
+<h2>Dữ liệu bị xoá và dữ liệu được giữ lại</h2>
+<ul>
+  <li><strong>Bị xoá:</strong> bản ghi tài khoản trong Firebase Authentication (tên, email, ảnh đại diện, mã người dùng). Theo yêu cầu qua email, chúng tôi cũng xoá dữ liệu thống kê sử dụng và báo lỗi gắn với lượt cài đặt của bạn trên Firebase.</li>
+  <li><strong>Không nằm trên máy chủ của chúng tôi:</strong> dữ liệu chi tiêu (giao dịch, ví, ngân sách…) chỉ lưu trên máy bạn. Xoá bằng cách xoá dữ liệu ứng dụng trong Cài đặt máy hoặc gỡ ứng dụng.</li>
+  <li><strong>Lịch sử mua gói Premium</strong> do Google Play lưu theo chính sách của Google; xoá tài khoản trong ứng dụng không huỷ gói thuê bao — hãy huỷ trong Google Play.</li>
+</ul>
+
+</section>
+
+<section id="en">
+
+<h1 style="margin-top:64px">Delete your account and data</h1>
+
+<h2>Option 1: In the app</h2>
+<ol>
+  <li>Open <strong>Quản lí chi tiêu</strong> and go to the <strong>Personal</strong> tab.</li>
+  <li>On the account card at the top, tap <strong>Delete account</strong> and confirm.</li>
+</ol>
+<p>Your sign-in account (name, email, profile photo, Firebase user ID) is removed from Firebase Authentication immediately.</p>
+
+<h2>Option 2: By email</h2>
+<p>If the app is no longer installed, email <a href="mailto:bquminh@gmail.com?subject=Delete%20my%20Qu%E1%BA%A3n%20l%C3%AD%20chi%20ti%C3%AAu%20account">bquminh@gmail.com</a> with the subject <em>"Delete my Quản lí chi tiêu account"</em> and the Google email address you signed in with. We process requests within 30 days and reply once done.</p>
+
+<h2>What is deleted and what is kept</h2>
+<ul>
+  <li><strong>Deleted:</strong> your Firebase Authentication account record (name, email, profile photo, user ID). On email request we also delete analytics and crash data tied to your app installation in Firebase.</li>
+  <li><strong>Not on our servers:</strong> your spending data (transactions, wallets, budgets…) is stored only on your device. Remove it by clearing the app's data in system settings or uninstalling the app.</li>
+  <li><strong>Premium purchase history</strong> is kept by Google Play under Google's policies; deleting your account does not cancel a subscription — cancel it in Google Play.</li>
+</ul>
+
+</section>
+
+<footer>
+  Quản lí chi tiêu · com.bquminh.chitieu · <a href="./">Chính sách bảo mật / Privacy Policy</a>
+</footer>
+
+</main>
+</body>
+</html>
