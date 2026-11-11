@@ -68,7 +68,7 @@
 <main>
 
 <h1>Chính sách bảo mật</h1>
-<p class="meta">Ứng dụng <strong>Quản lí chi tiêu</strong> (<code>com.bquminh.chitieu</code>) · Có hiệu lực từ 05/11/2026 (áp dụng từ phiên bản 1.1.0)</p>
+<p class="meta">Ứng dụng <strong>Quản lí chi tiêu</strong> (<code>com.bquminh.chitieu</code>) · Có hiệu lực từ 05/11/2026 (áp dụng từ phiên bản 1.1.0) · Cập nhật 11/11/2026: trợ lý AI đọc ảnh giao dịch</p>
 
 <p class="lang-switch"><a href="#vi">Tiếng Việt</a> <a href="#en">English</a></p>
 
@@ -94,9 +94,11 @@
   <li>câu bạn vừa nhắn;</li>
   <li>tên các danh mục và ví;</li>
   <li>tổng thu, tổng chi của tháng này và tháng trước, các nhóm chi lớn nhất;</li>
-  <li>khoảng 50 giao dịch gần nhất: ngày, loại, số tiền, danh mục, ví và ghi chú.</li>
+  <li>khoảng 50 giao dịch gần nhất: ngày, loại, số tiền, danh mục, ví và ghi chú;</li>
+  <li><strong>ảnh giao dịch</strong>, chỉ khi bạn chủ động chụp hoặc chọn ảnh trong màn Trợ lý (ảnh chuyển khoản, hoá đơn, thông báo ví điện tử…). Ảnh được thu nhỏ rồi gửi một lần để AI đọc số tiền, ngày, người nhận hay người chuyển và nội dung; khoản đọc được hiện thành thẻ để bạn kiểm tra trước khi lưu.</li>
 </ul>
-<p><strong>Không bao giờ gửi:</strong> mã PIN, nội dung gốc của thông báo ngân hàng, số tài khoản, tệp sao lưu, email hay tên tài khoản của bạn.</p>
+<p><strong>Về ảnh:</strong> ảnh chỉ được giữ trong cuộc trò chuyện đang mở để hiện lại cho bạn xem, không lưu vào dữ liệu của ứng dụng và không gửi tới máy chủ nào của chúng tôi. Ảnh có thể chứa thông tin khác hiện trên màn hình như tên người nhận, số tài khoản hay mã giao dịch; ứng dụng dặn AI không ghi số tài khoản, số thẻ hay mã giao dịch vào ghi chú. Nếu không muốn gửi những thông tin đó, hãy cắt ảnh trước khi gửi. Ứng dụng không đọc thư viện ảnh của bạn: trên Android chỉ dùng trình chọn ảnh của hệ thống, trên iOS chỉ nhận đúng ảnh bạn chọn.</p>
+<p><strong>Không bao giờ gửi:</strong> mã PIN, nội dung gốc của thông báo ngân hàng, tệp sao lưu, email hay tên tài khoản của bạn. Số tài khoản không bao giờ được gửi, trừ khi nó nằm sẵn trong ảnh bạn chọn gửi.</p>
 <p>Google xử lý dữ liệu này theo <a href="https://ai.google.dev/gemini-api/terms">Điều khoản Gemini API</a> và <a href="https://policies.google.com/privacy">Chính sách quyền riêng tư của Google</a>. Chúng tôi không lưu câu hỏi hay câu trả lời nào. Gói miễn phí được hỏi AI 3 lần mỗi ngày (thêm lượt khi xem quảng cáo có tặng thưởng), gói Premium 50 lần. Bạn có thể tắt việc gửi dữ liệu bất cứ lúc nào trong màn Trợ lý (menu ⋮ → "Dùng AI khi cần").</p>
 
 <h2>3. Thống kê sử dụng và báo lỗi (Firebase)</h2>
@@ -144,6 +146,7 @@
   <tr><td><code>POST_NOTIFICATIONS</code><br><code>VIBRATE</code></td><td>Thông báo nhắc giao dịch định kỳ. Chỉ hoạt động nếu bạn bật phần nhắc nhở.</td></tr>
   <tr><td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td><td>Đọc thông báo ngân hàng (mục 7). Mặc định tắt, bạn tự cấp trong Cài đặt hệ thống.</td></tr>
   <tr><td><code>SYSTEM_ALERT_WINDOW</code><br><code>FOREGROUND_SERVICE</code><br><code>FOREGROUND_SERVICE_SPECIAL_USE</code></td><td>Bong bóng ghi nhanh nổi trên ứng dụng khác (Android). Mặc định tắt.</td></tr>
+  <tr><td>Camera, Ảnh (iOS)<br>Trình chọn ảnh hệ thống (Android)</td><td>Chụp hoặc chọn ảnh giao dịch để trợ lý AI ghi thu chi (mục 2). Chỉ dùng khi bạn bấm nút camera; Android không cần cấp quyền đọc ảnh.</td></tr>
 </table>
 
 <h2>10. Bên thứ ba</h2>
@@ -170,7 +173,7 @@
 <section id="en">
 
 <h1 style="margin-top:64px">Privacy Policy</h1>
-<p class="meta"><strong>Quản lí chi tiêu</strong> (<code>com.bquminh.chitieu</code>) · Effective 5 November 2026 (applies from version 1.1.0)</p>
+<p class="meta"><strong>Quản lí chi tiêu</strong> (<code>com.bquminh.chitieu</code>) · Effective 5 November 2026 (applies from version 1.1.0) · Updated 11 November 2026: AI assistant reads transaction photos</p>
 
 <div class="lead">
 <p><strong>Summary:</strong> your spending data (transactions, wallets, budgets, notes) stays on your device; we run no server that stores it and nothing is synced. From version 1.1.0 the app uses some Google services: <strong>usage analytics and crash reports</strong> (Firebase, can be turned off), <strong>ads</strong> (Google AdMob, not shown with Premium), <strong>Google sign-in</strong> (optional), <strong>payments</strong> through Google Play, and the <strong>AI assistant</strong> (Google Gemini, only with your consent). None of these receive your amounts or transaction notes, except the AI assistant as described in section 2.</p>
@@ -180,7 +183,9 @@
 <p>Everything you enter lives in a SQLite database inside the app's private storage: transactions (amount, date, category, note), wallets and balances, budgets, savings goals, debts and loans, your categories, recurring rules and reminders, app settings, Premium status and today's AI question count. This data is not uploaded to any server and is not shared with the services in sections 3–7, even when you are signed in.</p>
 
 <h2>2. AI assistant (Google Gemini)</h2>
-<p>The assistant works on-device first: logging messages (e.g. "coffee 45k") and questions about balances, spending, budgets or how to use the app are answered on your device. Only when it can't answer by itself is the question sent to the <strong>Google Gemini API</strong>, and only after you agree the first time. The data sent is: your message; your category and wallet names; income and spending totals for this and last month and the top spending categories; and about 50 recent transactions (date, type, amount, category, wallet and note). <strong>Never sent:</strong> your PIN, raw bank notification text, account numbers, backup files, or your account email or name.</p>
+<p>The assistant works on-device first: logging messages (e.g. "coffee 45k") and questions about balances, spending, budgets or how to use the app are answered on your device. Only when it can't answer by itself is the question sent to the <strong>Google Gemini API</strong>, and only after you agree the first time. The data sent is: your message; your category and wallet names; income and spending totals for this and last month and the top spending categories; about 50 recent transactions (date, type, amount, category, wallet and note); and a <strong>transaction photo</strong>, only when you take or pick one on the Assistant screen (a transfer screenshot, receipt, e-wallet notice…). The photo is resized and sent once so the AI can read the amount, date, payee or payer and description; what it reads is shown as a card for you to check before saving.</p>
+<p><strong>About photos:</strong> a photo is kept only in the open conversation so you can see it, is not stored in the app's data and is never sent to any server of ours. A photo may show other on-screen details such as the recipient's name, account number or reference code; the app instructs the AI not to put account numbers, card numbers or reference codes into notes. Crop the photo first if you don't want to send those details. The app never reads your photo library: on Android it uses the system photo picker, and on iOS it receives only the photo you pick.</p>
+<p><strong>Never sent:</strong> your PIN, raw bank notification text, backup files, or your account email or name. Account numbers are never sent unless they appear in a photo you choose to send.</p>
 <p>Google processes this data under the <a href="https://ai.google.dev/gemini-api/terms">Gemini API Terms</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. We store none of your questions or answers. The free plan includes 3 AI questions a day (more after watching a rewarded ad); Premium includes 50. You can stop sending data at any time from the Assistant screen (⋮ menu → "Use AI when needed").</p>
 
 <h2>3. Usage analytics and crash reports (Firebase)</h2>
@@ -216,6 +221,7 @@
   <tr><td><code>POST_NOTIFICATIONS</code>, <code>VIBRATE</code></td><td>Reminders for recurring transactions, if you enable them.</td></tr>
   <tr><td><code>BIND_NOTIFICATION_LISTENER_SERVICE</code></td><td>Reading bank notifications (section 7). Off by default.</td></tr>
   <tr><td><code>SYSTEM_ALERT_WINDOW</code>, <code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_SPECIAL_USE</code></td><td>The quick-add bubble over other apps (Android). Off by default.</td></tr>
+  <tr><td>Camera, Photos (iOS); system photo picker (Android)</td><td>Taking or picking a transaction photo for the AI assistant (section 2). Used only when you tap the camera button; no photo-reading permission is needed on Android.</td></tr>
 </table>
 
 <h2>10. Third parties</h2>
